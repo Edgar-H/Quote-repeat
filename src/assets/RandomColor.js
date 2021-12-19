@@ -12,6 +12,10 @@ export const getRandomColor = () => {
     '#276e02',
     '#0051aa',
     '#146884',
+    '#064635',
+    '#F0BB62',
+    '#009DAE',
+    '#C32BAD',
   ];
   let color = colors[getRandomNumber(colors.length)];
   return color;
