@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import QuoteBox from './components/QuoteBox';
+import data from './assets/quotes.json';
+import { getRandomColor, getRandomNumber } from './assets/RandomColor';
+import './style.scss';
 
-function App() {
+const App = () => {
+  const quotes = data.quotes;
+  const cunterQuotes = quotes.length;
+  const randomQuotes = getRandomNumber(cunterQuotes);
+
+  const [newQuote, setNewQuote] = useState(quotes[randomQuotes]);
+  const [color, setColor] = useState(getRandomColor());
+
+  const handleNewQuote = () => {
+    const quoteRandom = quotes[getRandomNumber(cunterQuotes)];
+    setNewQuote(quoteRandom);
+    setColor(getRandomColor());
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app' style={{ '--current-color': `${color}` }}>
+      <main>
+        <QuoteBox
+          quote={newQuote.quote}
+          author={newQuote.author}
+          changeQoute={handleNewQuote}
+        ></QuoteBox>
+      </main>
     </div>
   );
-}
+};
 
 export default App;

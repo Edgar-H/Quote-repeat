@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--current-color);
+  main {
+    position: relative;
+    background-color: #f4f4f5;
+    width: 60%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 30%;
+    min-height: 280px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    .card-box {
+      > i {
+        position: absolute;
+        font-size: 50px;
+        color: var(--current-color);
+        opacity: 0.2;
+        top: 20px;
+      }
+      .quote {
+        margin-top: 56px;
+        p {
+          width: 100%;
+          font-size: 20px;
+          color: var(--current-color);
+          ~ p {
+            margin-top: 10px;
+            text-align: end;
+          }
+        }
+      }
+      .card-btns {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        a {
+          text-decoration: none;
+          i {
+            font-size: 38px;
+            color: var(--current-color);
+          }
+        }
+        > i {
+          margin-left: 16px;
+          font-size: 30px;
+          background-color: var(--current-color);
+          padding: 5px 13px;
+          border-radius: 50%;
+          cursor: pointer;
+          color: #fff;
+        }
+        i:hover {
+          transform: scale(1.1);
+          transition: all 0.5s;
+        }
+      }
+    }
+    @media screen and (max-width: 820px) {
+      height: 46%;
+    }
+  }
+}
